@@ -12,7 +12,7 @@ if '%errorlevel%' NEQ '0' (
     goto gotAdmin 
 )
 :----------------------------------------------------------------------------------------------------------------:
-:UACPrompt
+UACPrompt
     echo Set UAC = CreateObject^("Shell.Application"^) > "%temp%\getadmin.vbs"
     set params= %*
     echo UAC.ShellExecute "cmd.exe", "/c ""%~s0"" %params:"=""%", "", "runas", 1 >> "%temp%\getadmin.vbs"           ::This part of the code creates and runs a VBS script to request administrator rights via UAC.
@@ -20,7 +20,7 @@ if '%errorlevel%' NEQ '0' (
     del "%temp%\getadmin.vbs"
     exit /B
 :----------------------------------------------------------------------------------------------------------------:
-:gotAdmin
+gotAdmin
     pushd "%CD%"                                                                                                    ::This part of the code performs important preparatory actions after obtaining administrator rights.
     CD /D "%~dp0"
 :----------------------------------------------------------------------------------------------------------------:
